@@ -6,6 +6,10 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
 import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
@@ -20,6 +24,9 @@ import { MessagesComponent }    from './messages/messages.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+
     HttpClientModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
